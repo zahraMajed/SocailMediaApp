@@ -9,21 +9,41 @@
 /* Begin PBXBuildFile section */
 		B975421428292F3200B135C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975421328292F3200B135C9 /* AppDelegate.swift */; };
 		B975421628292F3200B135C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975421528292F3200B135C9 /* SceneDelegate.swift */; };
-		B975421828292F3200B135C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975421728292F3200B135C9 /* ViewController.swift */; };
+		B975421828292F3200B135C9 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975421728292F3200B135C9 /* PostsViewController.swift */; };
 		B975421B28292F3200B135C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B975421928292F3200B135C9 /* Main.storyboard */; };
 		B975421D28292F3300B135C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B975421C28292F3300B135C9 /* Assets.xcassets */; };
 		B975422028292F3300B135C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B975421E28292F3300B135C9 /* LaunchScreen.storyboard */; };
+		B97542292829306400B135C9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B97542282829306400B135C9 /* Alamofire */; };
+		B975422C2829308A00B135C9 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B975422B2829308A00B135C9 /* SwiftyJSON */; };
+		B9754231282934AD00B135C9 /* posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754230282934AD00B135C9 /* posts.swift */; };
+		B975423328293E6E00B135C9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975423228293E6E00B135C9 /* PostTableViewCell.swift */; };
+		B975423528294C2000B135C9 /* users.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975423428294C2000B135C9 /* users.swift */; };
+		B97542372829943500B135C9 /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97542362829943500B135C9 /* PostDetailsViewController.swift */; };
+		B97542392829A4DF00B135C9 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97542382829A4DE00B135C9 /* Comments.swift */; };
+		B975423B2829A6DE00B135C9 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975423A2829A6DE00B135C9 /* CommentsTableViewCell.swift */; };
+		B975423E2829C30B00B135C9 /* UIimage+StringURLToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975423D2829C30B00B135C9 /* UIimage+StringURLToImage.swift */; };
+		B97542412829C80000B135C9 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = B97542402829C80000B135C9 /* NVActivityIndicatorView */; };
+		B97542432829C80000B135C9 /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = B97542422829C80000B135C9 /* NVActivityIndicatorViewExtended */; };
+		B97542452829CECA00B135C9 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97542442829CECA00B135C9 /* ShadowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B975421028292F3200B135C9 /* SocailMediaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocailMediaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B975421328292F3200B135C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B975421528292F3200B135C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B975421728292F3200B135C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B975421728292F3200B135C9 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
 		B975421A28292F3200B135C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B975421C28292F3300B135C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B975421F28292F3300B135C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B975422128292F3300B135C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9754230282934AD00B135C9 /* posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = posts.swift; sourceTree = "<group>"; };
+		B975423228293E6E00B135C9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		B975423428294C2000B135C9 /* users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = users.swift; sourceTree = "<group>"; };
+		B97542362829943500B135C9 /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
+		B97542382829A4DE00B135C9 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		B975423A2829A6DE00B135C9 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		B975423D2829C30B00B135C9 /* UIimage+StringURLToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+StringURLToImage.swift"; sourceTree = "<group>"; };
+		B97542442829CECA00B135C9 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +51,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B975422C2829308A00B135C9 /* SwiftyJSON in Frameworks */,
+				B97542432829C80000B135C9 /* NVActivityIndicatorViewExtended in Frameworks */,
+				B97542292829306400B135C9 /* Alamofire in Frameworks */,
+				B97542412829C80000B135C9 /* NVActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +80,55 @@
 		B975421228292F3200B135C9 /* SocailMediaApp */ = {
 			isa = PBXGroup;
 			children = (
+				B975423C2829C2D300B135C9 /* Utilities */,
+				B975422F282933A600B135C9 /* Models */,
+				B975422E2829338E00B135C9 /* View Controllers */,
+				B975422D2829337C00B135C9 /* Views */,
 				B975421328292F3200B135C9 /* AppDelegate.swift */,
 				B975421528292F3200B135C9 /* SceneDelegate.swift */,
-				B975421728292F3200B135C9 /* ViewController.swift */,
-				B975421928292F3200B135C9 /* Main.storyboard */,
-				B975421C28292F3300B135C9 /* Assets.xcassets */,
-				B975421E28292F3300B135C9 /* LaunchScreen.storyboard */,
 				B975422128292F3300B135C9 /* Info.plist */,
 			);
 			path = SocailMediaApp;
+			sourceTree = "<group>";
+		};
+		B975422D2829337C00B135C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B975421E28292F3300B135C9 /* LaunchScreen.storyboard */,
+				B975421928292F3200B135C9 /* Main.storyboard */,
+				B975421C28292F3300B135C9 /* Assets.xcassets */,
+				B975423228293E6E00B135C9 /* PostTableViewCell.swift */,
+				B975423A2829A6DE00B135C9 /* CommentsTableViewCell.swift */,
+				B97542442829CECA00B135C9 /* ShadowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B975422E2829338E00B135C9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B975421728292F3200B135C9 /* PostsViewController.swift */,
+				B97542362829943500B135C9 /* PostDetailsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B975422F282933A600B135C9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B9754230282934AD00B135C9 /* posts.swift */,
+				B975423428294C2000B135C9 /* users.swift */,
+				B97542382829A4DE00B135C9 /* Comments.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B975423C2829C2D300B135C9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B975423D2829C30B00B135C9 /* UIimage+StringURLToImage.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +147,12 @@
 			dependencies = (
 			);
 			name = SocailMediaApp;
+			packageProductDependencies = (
+				B97542282829306400B135C9 /* Alamofire */,
+				B975422B2829308A00B135C9 /* SwiftyJSON */,
+				B97542402829C80000B135C9 /* NVActivityIndicatorView */,
+				B97542422829C80000B135C9 /* NVActivityIndicatorViewExtended */,
+			);
 			productName = SocailMediaApp;
 			productReference = B975421028292F3200B135C9 /* SocailMediaApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +181,11 @@
 				Base,
 			);
 			mainGroup = B975420728292F3200B135C9;
+			packageReferences = (
+				B97542272829306400B135C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B975422A2829308A00B135C9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				B975423F2829C80000B135C9 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+			);
 			productRefGroup = B975421128292F3200B135C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,9 +213,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B975421828292F3200B135C9 /* ViewController.swift in Sources */,
+				B975421828292F3200B135C9 /* PostsViewController.swift in Sources */,
+				B97542452829CECA00B135C9 /* ShadowView.swift in Sources */,
+				B975423E2829C30B00B135C9 /* UIimage+StringURLToImage.swift in Sources */,
 				B975421428292F3200B135C9 /* AppDelegate.swift in Sources */,
+				B97542372829943500B135C9 /* PostDetailsViewController.swift in Sources */,
+				B975423328293E6E00B135C9 /* PostTableViewCell.swift in Sources */,
 				B975421628292F3200B135C9 /* SceneDelegate.swift in Sources */,
+				B975423528294C2000B135C9 /* users.swift in Sources */,
+				B9754231282934AD00B135C9 /* posts.swift in Sources */,
+				B975423B2829A6DE00B135C9 /* CommentsTableViewCell.swift in Sources */,
+				B97542392829A4DF00B135C9 /* Comments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +441,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B97542272829306400B135C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		B975422A2829308A00B135C9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		B975423F2829C80000B135C9 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B97542282829306400B135C9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B97542272829306400B135C9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B975422B2829308A00B135C9 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B975422A2829308A00B135C9 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		B97542402829C80000B135C9 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B975423F2829C80000B135C9 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		B97542422829C80000B135C9 /* NVActivityIndicatorViewExtended */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B975423F2829C80000B135C9 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorViewExtended;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B975420828292F3200B135C9 /* Project object */;
 }

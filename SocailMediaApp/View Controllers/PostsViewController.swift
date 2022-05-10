@@ -6,16 +6,16 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 import NVActivityIndicatorView
 
 class PostsViewController: UIViewController {
-
+    
+    var postsArray: [Post] = []
+    // MARK: OUTLETS
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     @IBOutlet weak var postsTableView: UITableView!
-    var postsArray: [Post] = []
     
+    // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,31 +23,33 @@ class PostsViewController: UIViewController {
         postsTableView.dataSource = self
         loaderView.startAnimating()
         getPosts()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(userProfileTapped), name: NSNotification.Name(rawValue: "userStackViewTapped"), object: nil)
     }
     
+    // MARK: FUNCTIONS
     private func getPosts(){
-        let url = "https://dummyapi.io/data/v1/post"
-        let appId = "6278eb012721ec3f09a86f0f"
-        let headers: HTTPHeaders = [
-            "app-id": appId,
-        ]
-
-        AF.request(url, headers: headers).responseJSON { response in
+        PostAPI.getAllPosts { postsArrayResponse in
+            self.postsArray = postsArrayResponse
+            self.postsTableView.reloadData()
             self.loaderView.stopAnimating()
-            let jsonData = JSON(response.value!)
-            let data = jsonData["data"]
-            //Now convert json to struct (valid format in swift)
-            let decoder = JSONDecoder()
-            do {
-                self.postsArray = try decoder.decode([Post].self, from: data.rawData())
-                self.postsTableView.reloadData()
-            } catch let Error{
-                print(Error)
+        }
+    }
+    
+    @objc func userProfileTapped(notification: Notification){
+        if let cell = notification.userInfo?["cell"] as? PostTableViewCell {
+            if let tappedPostIndexPath = postsTableView.indexPath(for: cell){
+                let tappedPost = postsArray[tappedPostIndexPath.row]
+                let UserProfileVC = storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+                UserProfileVC.user = tappedPost.owner
+                present(UserProfileVC, animated: true, completion: nil)
             }
         }
+        
     }
 }
 
+// MARK: TABLE VIEW METHODS
 extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postsArray.count
@@ -58,7 +60,7 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         let currentPost = postsArray[indexPath.row]
         //filling data
         cell.userImgView.makeCircularImg()
-        cell.userImgView.setImageFromStringURL(stringURL: currentPost.owner.picture)
+        cell.userImgView.setImageFromStringURL(stringURL: currentPost.owner.picture!)
         cell.userNameLabel.text = currentPost.owner.firstName + " " + currentPost.owner.lastName
         cell.postTxtLable.text = currentPost.text
         cell.postImgView.setImageFromStringURL(stringURL: currentPost.image)

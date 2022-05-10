@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
 import NVActivityIndicatorView
 
 class PostDetailsViewController: UIViewController {
-    //here i set 3 image
+    
     // MARK: VARIABLES
     var post: Post!
     var commentsArray: [Comments] = []
@@ -49,28 +47,15 @@ class PostDetailsViewController: UIViewController {
         likesNumberLbl.text = String(post.likes)
         postImgView.setImageFromStringURL(stringURL: post.image)
         userImgview.makeCircularImg()
-        userImgview.setImageFromStringURL(stringURL: post.owner.picture)
+        userImgview.setImageFromStringURL(stringURL: post.owner.picture!)
         getPostComments()
     }
     
     private func getPostComments(){
-        let url = "https://dummyapi.io/data/v1/post/\(post.id)/comment"
-        let appId = "6278eb012721ec3f09a86f0f"
-        let headers: HTTPHeaders = [
-            "app-id": appId,
-        ]
-
-        AF.request(url, headers: headers).responseJSON { response in
+        PostAPI.getPostComments(postID: post.id) { commentsArrayResponse in
+            self.commentsArray = commentsArrayResponse
+            self.commentsTableView.reloadData()
             self.loaderView.stopAnimating()
-            let jsonData = JSON(response.value!)
-            let data = jsonData["data"]
-            let decoder = JSONDecoder()
-            do {
-                self.commentsArray = try decoder.decode([Comments].self, from: data.rawData())
-                self.commentsTableView.reloadData()
-            } catch let Error{
-                print(Error)
-            }
         }
     }
 }
@@ -90,7 +75,7 @@ extension PostDetailsViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.userImgView.makeCircularImg()
         
-        if let imgURL = URL(string: currentComment.owner.picture) {
+        if let imgURL = URL(string: currentComment.owner.picture!) {
             if let imgData = try? Data(contentsOf: imgURL){
                 cell.userImgView.image = UIImage(data: imgData)
             }

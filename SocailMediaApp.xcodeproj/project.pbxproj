@@ -31,6 +31,7 @@
 		B975424E282A8F9700B135C9 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975424D282A8F9700B135C9 /* UserAPI.swift */; };
 		B9754250282A91D500B135C9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975424F282A91D500B135C9 /* API.swift */; };
 		B9754252282A99F900B135C9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754251282A99F900B135C9 /* RegisterViewController.swift */; };
+		B9754254282AB22900B135C9 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754253282AB22900B135C9 /* SigninViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B975424D282A8F9700B135C9 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		B975424F282A91D500B135C9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		B9754251282A99F900B135C9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B9754253282AB22900B135C9 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				B97542362829943500B135C9 /* PostDetailsViewController.swift */,
 				B9754246282A78C100B135C9 /* UserProfileViewController.swift */,
 				B9754251282A99F900B135C9 /* RegisterViewController.swift */,
+				B9754253282AB22900B135C9 /* SigninViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				B97542372829943500B135C9 /* PostDetailsViewController.swift in Sources */,
 				B975424A282A826600B135C9 /* Location.swift in Sources */,
 				B975423328293E6E00B135C9 /* PostTableViewCell.swift in Sources */,
+				B9754254282AB22900B135C9 /* SigninViewController.swift in Sources */,
 				B975424E282A8F9700B135C9 /* UserAPI.swift in Sources */,
 				B975424C282A888C00B135C9 /* PostAPI.swift in Sources */,
 				B975421628292F3200B135C9 /* SceneDelegate.swift in Sources */,

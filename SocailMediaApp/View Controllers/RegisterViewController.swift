@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController {
     // MARK: ACTIONS
     @IBAction func signupBtnClicked(_ sender: Any) {
         if let firstName = firstNameTxtField.text, let lastName = lastNameTxtField.text, let email = emailTxtField.text {
-            if firstName.isEmpty || lastName.isEmpty || email.isEmpty  {
+            if firstName.isEmpty && lastName.isEmpty && email.isEmpty  {
                 let alert = UIAlertController(title: "Error", message: "Please fill all fields", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alert.addAction(okAction)

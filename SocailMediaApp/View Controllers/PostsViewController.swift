@@ -11,7 +11,10 @@ import NVActivityIndicatorView
 class PostsViewController: UIViewController {
     
     var postsArray: [Post] = []
+    var loggedinUser: User?
+    
     // MARK: OUTLETS
+    @IBOutlet weak var welcomeUserLabel: UILabel!
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     @IBOutlet weak var postsTableView: UITableView!
     
@@ -22,12 +25,22 @@ class PostsViewController: UIViewController {
         postsTableView.delegate = self
         postsTableView.dataSource = self
         loaderView.startAnimating()
+        checkIfUserOrGuest()
         getPosts()
         
         NotificationCenter.default.addObserver(self, selector: #selector(userProfileTapped), name: NSNotification.Name(rawValue: "userStackViewTapped"), object: nil)
+        
     }
     
     // MARK: FUNCTIONS
+    
+    private func checkIfUserOrGuest(){
+        if let loggedinUser = loggedinUser {
+            welcomeUserLabel.text = "Hi, \(loggedinUser.firstName)"
+        }else{
+            welcomeUserLabel.isHidden = true
+        }
+    }
     private func getPosts(){
         PostAPI.getAllPosts { postsArrayResponse in
             self.postsArray = postsArrayResponse

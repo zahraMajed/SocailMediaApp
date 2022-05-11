@@ -11,12 +11,14 @@ import NVActivityIndicatorView
 class PostsViewController: UIViewController {
     
     var postsArray: [Post] = []
-    var loggedinUser: User?
+    var selectedTag:String?
     
     // MARK: OUTLETS
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     @IBOutlet weak var postsTableView: UITableView!
     @IBOutlet weak var signinBtn: UIButton!
+    @IBOutlet weak var postTagLabel: UILabel!
+    @IBOutlet weak var closeBtn: UIButton!
     
     // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
@@ -26,23 +28,39 @@ class PostsViewController: UIViewController {
         postsTableView.dataSource = self
         loaderView.startAnimating()
         checkIfUserOrGuest()
+        checkIfTag()
         getPosts()
         
         NotificationCenter.default.addObserver(self, selector: #selector(userProfileTapped), name: NSNotification.Name(rawValue: "userStackViewTapped"), object: nil)
         
     }
     
+    // MARK: ACTIONS
+    @IBAction func colseBtnClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: FUNCTIONS
     
     private func checkIfUserOrGuest(){
-        if loggedinUser != nil {
-            signinBtn.titleLabel?.text = "Signout"
+        if  UserManager.loggedinUser != nil {
+            signinBtn.setImage(UIImage(systemName: "lock"), for: .normal)
         }else{
-            signinBtn.titleLabel?.text = "Signin"
+            signinBtn.setImage(UIImage(systemName: "lock.open"), for: .normal)
+        }
+    }
+    private func checkIfTag(){
+        if let selectedTag = selectedTag {
+            postTagLabel.text = selectedTag.trimmingCharacters(in: .whitespaces).capitalizingFirstLetter()
+            closeBtn.isHidden = false
+        } else {
+            postTagLabel.text = "Feed"
+            closeBtn.isHidden = true
+            
         }
     }
     private func getPosts(){
-        PostAPI.getAllPosts { postsArrayResponse in
+        PostAPI.getAllPosts(tag: selectedTag) { postsArrayResponse in
             self.postsArray = postsArrayResponse
             self.postsTableView.reloadData()
             self.loaderView.stopAnimating()
@@ -58,7 +76,12 @@ class PostsViewController: UIViewController {
                 present(UserProfileVC, animated: true, completion: nil)
             }
         }
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "signoutSeg" {
+            UserManager.loggedinUser = nil
+        }
     }
 }
 
@@ -86,7 +109,6 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedPost = postsArray[indexPath.row]
         let postDetailsVC = storyboard?.instantiateViewController(withIdentifier: "PostDetailsViewController") as! PostDetailsViewController
         postDetailsVC.post = selectedPost
-        postDetailsVC.loggedUser = loggedinUser
         present(postDetailsVC, animated: true, completion: nil)
     }
     

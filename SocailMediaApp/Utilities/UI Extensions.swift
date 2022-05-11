@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: UIImageView
 extension UIImageView {
     func setImageFromStringURL(stringURL: String){
         if let imgURL = URL(string: stringURL) {
@@ -22,6 +23,7 @@ extension UIImageView {
     }
 }
 
+// MARK: UIView
 extension UIView {
     func roundCorners(_ corners: UIRectCorner, radius:CGFloat){
         let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
@@ -31,6 +33,7 @@ extension UIView {
     }
 }
 
+// MARK: UIColor
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -48,5 +51,16 @@ extension UIColor {
             (a, r, g, b) = (255, 0, 0, 0)
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+}
+
+// MARK: STRING
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }

@@ -12,6 +12,8 @@ class SigninViewController: UIViewController {
     // MARK: OUTLETS
     @IBOutlet weak var firstNameTxtField: UITextField!
     @IBOutlet weak var lastNameTxtField: UITextField!
+    
+    // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,9 +36,9 @@ class SigninViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                     } else {
                         if let loggedinUser = user {
-                            let postVC = self.storyboard?.instantiateViewController(withIdentifier: "PostsViewController") as! PostsViewController
-                            postVC.loggedinUser = loggedinUser
-                            self.present(postVC, animated: true, completion: nil)
+                            let postVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTapBar")
+                            UserManager.loggedinUser = loggedinUser
+                            self.present(postVC!, animated: true, completion: nil)
                         }
                     }
                 }

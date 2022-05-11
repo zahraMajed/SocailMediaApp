@@ -13,7 +13,6 @@ class PostDetailsViewController: UIViewController {
     // MARK: VARIABLES
     var post: Post!
     var commentsArray: [Comments] = []
-    var loggedUser: User?
     
     // MARK: OUTLETS
     @IBOutlet weak var userImgview: UIImageView!
@@ -23,6 +22,7 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var commentsTableView: UITableView!
     @IBOutlet weak var likesNumberLbl: UILabel!
     @IBOutlet weak var commentTxtField: UITextField!
+    @IBOutlet weak var newCommentStackView: UIStackView!
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     
     // MARK: LIFE CYCLE METHOD
@@ -33,6 +33,7 @@ class PostDetailsViewController: UIViewController {
         commentsTableView.dataSource = self
         loaderView.startAnimating()
         setPostData()
+        checkIfUserOrGuest()
         
     }
     
@@ -44,7 +45,7 @@ class PostDetailsViewController: UIViewController {
     
     @IBAction func sendCommentBtnClicked(_ sender: Any) {
         let msg = commentTxtField.text!
-        if let loggedUser = loggedUser {
+        if let loggedUser = UserManager.loggedinUser{
             PostAPI.addNewCommentToPst(postId: post.id, userID: loggedUser.id, msg: msg) {
                 self.getPostComments()
                 self.commentTxtField.text?.removeAll()
@@ -53,6 +54,14 @@ class PostDetailsViewController: UIViewController {
     }
     
     // MARK: FUNCTIONS
+    private func checkIfUserOrGuest(){
+        if UserManager.loggedinUser == nil {
+            newCommentStackView.isHidden = true
+        }else{
+            newCommentStackView.isHidden = false
+        }
+    }
+
     private func setPostData(){
         userNameLbl.text = post.owner.firstName + " " + post.owner.lastName
         postTxtLbl.text = post.text

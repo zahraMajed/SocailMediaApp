@@ -12,6 +12,7 @@ class UserProfileViewController: UIViewController {
     var user: User!
     // MARK: OUTLETS
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userImgView: UIImageView!
     @IBOutlet weak var userEmailLabel: UILabel!
@@ -22,6 +23,7 @@ class UserProfileViewController: UIViewController {
     // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
+        backView.roundCorners([.topLeft, .topRight], radius: 30)
         setUserData()
     }
     
@@ -37,7 +39,6 @@ class UserProfileViewController: UIViewController {
     private func setUserData(){
         userNameLabel.text = user.firstName + " " + user.lastName
         userImgView.setImageFromStringURL(stringURL: user.picture!)
-        userImgView.makeCircularImg()
         userEmailLabel.text = user.email
         userPhoneLabel.text = user.phone
         userGenderLabel.text = user.gender

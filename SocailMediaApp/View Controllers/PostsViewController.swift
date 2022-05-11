@@ -14,9 +14,9 @@ class PostsViewController: UIViewController {
     var loggedinUser: User?
     
     // MARK: OUTLETS
-    @IBOutlet weak var welcomeUserLabel: UILabel!
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     @IBOutlet weak var postsTableView: UITableView!
+    @IBOutlet weak var signinBtn: UIButton!
     
     // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
@@ -35,10 +35,10 @@ class PostsViewController: UIViewController {
     // MARK: FUNCTIONS
     
     private func checkIfUserOrGuest(){
-        if let loggedinUser = loggedinUser {
-            welcomeUserLabel.text = "Hi, \(loggedinUser.firstName)"
+        if loggedinUser != nil {
+            signinBtn.titleLabel?.text = "Signout"
         }else{
-            welcomeUserLabel.isHidden = true
+            signinBtn.titleLabel?.text = "Signin"
         }
     }
     private func getPosts(){
@@ -86,6 +86,7 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         let selectedPost = postsArray[indexPath.row]
         let postDetailsVC = storyboard?.instantiateViewController(withIdentifier: "PostDetailsViewController") as! PostDetailsViewController
         postDetailsVC.post = selectedPost
+        postDetailsVC.loggedUser = loggedinUser
         present(postDetailsVC, animated: true, completion: nil)
     }
     

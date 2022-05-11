@@ -13,6 +13,7 @@ class PostDetailsViewController: UIViewController {
     // MARK: VARIABLES
     var post: Post!
     var commentsArray: [Comments] = []
+    var loggedUser: User?
     
     // MARK: OUTLETS
     @IBOutlet weak var userImgview: UIImageView!
@@ -21,6 +22,7 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var postImgView: UIImageView!
     @IBOutlet weak var commentsTableView: UITableView!
     @IBOutlet weak var likesNumberLbl: UILabel!
+    @IBOutlet weak var commentTxtField: UITextField!
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     
     // MARK: LIFE CYCLE METHOD
@@ -38,6 +40,16 @@ class PostDetailsViewController: UIViewController {
     
     @IBAction func closeBtnClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func sendCommentBtnClicked(_ sender: Any) {
+        let msg = commentTxtField.text!
+        if let loggedUser = loggedUser {
+            PostAPI.addNewCommentToPst(postId: post.id, userID: loggedUser.id, msg: msg) {
+                self.getPostComments()
+                self.commentTxtField.text?.removeAll()
+            }
+        }
     }
     
     // MARK: FUNCTIONS
@@ -70,15 +82,13 @@ extension PostDetailsViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CommentsTableViewCell") as! CommentsTableViewCell
         let currentComment = commentsArray[indexPath.row]
-        cell.userNameLabel.text = currentComment.owner.firstName + " " + currentComment.owner.firstName
+        cell.userNameLabel.text = currentComment.owner.firstName + " " + currentComment.owner.lastName
         cell.commentMsgLabel.text = currentComment.message
         
         cell.userImgView.makeCircularImg()
         
-        if let imgURL = URL(string: currentComment.owner.picture!) {
-            if let imgData = try? Data(contentsOf: imgURL){
-                cell.userImgView.image = UIImage(data: imgData)
-            }
+        if let userImg = currentComment.owner.picture {
+            cell.userImgView.setImageFromStringURL(stringURL: userImg)
         }
         return cell
     }

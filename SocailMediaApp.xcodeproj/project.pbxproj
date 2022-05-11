@@ -35,6 +35,7 @@
 		B9754256282B982000B135C9 /* User Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754255282B982000B135C9 /* User Manager.swift */; };
 		B9754258282BA70200B135C9 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754257282BA70200B135C9 /* TagsViewController.swift */; };
 		B975425A282BA86C00B135C9 /* tagsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754259282BA86C00B135C9 /* tagsCVCell.swift */; };
+		B975425C282C28AA00B135C9 /* tagsInAllPostssCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975425B282C28AA00B135C9 /* tagsInAllPostssCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		B9754255282B982000B135C9 /* User Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Manager.swift"; sourceTree = "<group>"; };
 		B9754257282BA70200B135C9 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		B9754259282BA86C00B135C9 /* tagsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagsCVCell.swift; sourceTree = "<group>"; };
+		B975425B282C28AA00B135C9 /* tagsInAllPostssCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagsInAllPostssCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				B975423A2829A6DE00B135C9 /* CommentsTableViewCell.swift */,
 				B97542442829CECA00B135C9 /* ShadowView.swift */,
 				B9754259282BA86C00B135C9 /* tagsCVCell.swift */,
+				B975425B282C28AA00B135C9 /* tagsInAllPostssCVCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				B975423B2829A6DE00B135C9 /* CommentsTableViewCell.swift in Sources */,
 				B9754258282BA70200B135C9 /* TagsViewController.swift in Sources */,
 				B9754250282A91D500B135C9 /* API.swift in Sources */,
+				B975425C282C28AA00B135C9 /* tagsInAllPostssCVCell.swift in Sources */,
 				B97542392829A4DF00B135C9 /* Comments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

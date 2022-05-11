@@ -250,23 +250,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LlW-7A-vwf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LlW-7A-vwf">
                                 <rect key="frame" x="0.0" y="174" width="414" height="585"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="tintColor" red="0.25098040700000002" green="0.56078433989999998" blue="0.56862747670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostTableViewCell" rowHeight="425" id="YP8-qY-L1m" customClass="PostTableViewCell" customModule="SocailMediaApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="425"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostTableViewCell" rowHeight="465" id="YP8-qY-L1m" customClass="PostTableViewCell" customModule="SocailMediaApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="465"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YP8-qY-L1m" id="697-Rw-fsO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="425"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="465"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-Xz-WJa" userLabel="BackView" customClass="ShadowView" customModule="SocailMediaApp" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="398" height="409"/>
+                                                    <rect key="frame" x="8" y="8" width="398" height="449"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="mcJ-n0-bTp" userLabel="Post Stack View">
-                                                            <rect key="frame" x="28" y="28" width="342" height="353"/>
+                                                            <rect key="frame" x="28" y="28" width="342" height="393"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8vM-LU-cvr" userLabel="User stack view">
                                                                     <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
@@ -291,21 +291,76 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QkD-TS-uHL">
-                                                                    <rect key="frame" x="0.0" y="62" width="342" height="37"/>
+                                                                    <rect key="frame" x="0.0" y="62" width="342" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newspaper.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="v3M-2d-dPg">
-                                                                    <rect key="frame" x="0.0" y="111" width="342" height="200"/>
+                                                                    <rect key="frame" x="0.0" y="94.5" width="342" height="200"/>
                                                                     <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="374" id="Olb-jJ-VIU"/>
                                                                         <constraint firstAttribute="height" constant="200" id="SxC-BD-mRy"/>
                                                                     </constraints>
                                                                 </imageView>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-iJ-1e4">
+                                                                    <rect key="frame" x="0.0" y="306.5" width="342" height="44.5"/>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="44.5" id="cYI-Qn-Dvv"/>
+                                                                    </constraints>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tV2-BF-UgW">
+                                                                        <size key="itemSize" width="128" height="40"/>
+                                                                        <size key="estimatedItemSize" width="128" height="40"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                    <cells>
+                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagsInAllPostssCVCell" id="Ntq-Yc-aJN" customClass="tagsInAllPostssCVCell" customModule="SocailMediaApp" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="2.5" width="128" height="40"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eje-4Q-uGa">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="40"/>
+                                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                                <subviews>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoe-eh-f3c" customClass="ShadowView" customModule="SocailMediaApp" customModuleProvider="target">
+                                                                                        <rect key="frame" x="2" y="2" width="124" height="33"/>
+                                                                                        <subviews>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnB-lv-5iI">
+                                                                                                <rect key="frame" x="2" y="6.5" width="120" height="20.5"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstItem="TnB-lv-5iI" firstAttribute="centerY" secondItem="qoe-eh-f3c" secondAttribute="centerY" id="JJR-uD-SYA"/>
+                                                                                            <constraint firstItem="TnB-lv-5iI" firstAttribute="centerX" secondItem="qoe-eh-f3c" secondAttribute="centerX" id="Ox5-QE-Vof"/>
+                                                                                            <constraint firstItem="TnB-lv-5iI" firstAttribute="leading" secondItem="qoe-eh-f3c" secondAttribute="leading" constant="2" id="acG-4l-JBf"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="TnB-lv-5iI" secondAttribute="trailing" constant="2" id="pJB-pv-9Y6"/>
+                                                                                        </constraints>
+                                                                                    </view>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="qoe-eh-f3c" secondAttribute="trailing" constant="2" id="3Qq-Pg-rBT"/>
+                                                                                    <constraint firstItem="qoe-eh-f3c" firstAttribute="leading" secondItem="eje-4Q-uGa" secondAttribute="leading" constant="2" id="PRw-8x-plF"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="qoe-eh-f3c" secondAttribute="bottom" constant="5" id="apA-64-7oh"/>
+                                                                                    <constraint firstItem="qoe-eh-f3c" firstAttribute="top" secondItem="eje-4Q-uGa" secondAttribute="top" constant="2" id="mLE-WC-F4y"/>
+                                                                                    <constraint firstItem="qoe-eh-f3c" firstAttribute="width" secondItem="eje-4Q-uGa" secondAttribute="width" multiplier="0.96875" id="nGv-aL-gNa"/>
+                                                                                </constraints>
+                                                                            </collectionViewCellContentView>
+                                                                            <size key="customSize" width="128" height="40"/>
+                                                                            <connections>
+                                                                                <outlet property="tagLabel" destination="TnB-lv-5iI" id="eJ7-hv-B35"/>
+                                                                            </connections>
+                                                                        </collectionViewCell>
+                                                                    </cells>
+                                                                </collectionView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="riI-FK-C7q" userLabel="Likes Stack View">
-                                                                    <rect key="frame" x="0.0" y="323" width="342" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="363" width="342" height="30"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VaA-F1-wN3">
                                                                             <rect key="frame" x="0.0" y="-1" width="25" height="31"/>
@@ -349,6 +404,7 @@
                                             <outlet property="likesNumber" destination="rDv-E4-ioM" id="U1e-Fp-Hjn"/>
                                             <outlet property="postImgView" destination="v3M-2d-dPg" id="Gns-dr-jKq"/>
                                             <outlet property="postTxtLable" destination="QkD-TS-uHL" id="hK8-Lv-FFY"/>
+                                            <outlet property="tagsCollectionView" destination="R2f-iJ-1e4" id="0li-0x-gbL"/>
                                             <outlet property="userImgView" destination="zLn-gT-5HT" id="CO7-bU-Jqw"/>
                                             <outlet property="userNameLabel" destination="W7c-fu-dcF" id="9jZ-7u-t5L"/>
                                             <outlet property="userStackView" destination="8vM-LU-cvr" id="eYm-XJ-uPp"/>
@@ -885,7 +941,7 @@
                                     <constraint firstItem="FXW-j7-0yR" firstAttribute="leading" secondItem="IV0-IT-cvQ" secondAttribute="trailing" constant="25" id="snI-jf-I4e"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rbh-0S-G25">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rbh-0S-G25">
                                 <rect key="frame" x="10" y="174" width="394" height="585"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qPh-7i-DkI">

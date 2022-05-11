@@ -101,6 +101,7 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.postTxtLable.text = currentPost.text
         cell.postImgView.setImageFromStringURL(stringURL: currentPost.image)
         cell.likesNumber.text = String(currentPost.likes)
+        cell.tagsArray = currentPost.tags ?? []
         return cell
     }
     
@@ -113,7 +114,7 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 425
+        return 465
     }
     
     

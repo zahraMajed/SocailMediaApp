@@ -9,6 +9,8 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
+    var tagsArray: [String] = []
+    
     // MARK: OUTLETS
     @IBOutlet weak var userStackView: UIStackView! {
         didSet{
@@ -20,10 +22,15 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postTxtLable: UILabel!
     @IBOutlet weak var postImgView: UIImageView!
     @IBOutlet weak var likesNumber: UILabel!
+    @IBOutlet weak var tagsCollectionView: UICollectionView! {
+        didSet{
+            tagsCollectionView.delegate = self
+            tagsCollectionView.dataSource = self
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,4 +42,18 @@ class PostTableViewCell: UITableViewCell {
         NotificationCenter.default.post(name: NSNotification.Name("userStackViewTapped"), object: nil, userInfo: ["cell": self])
     }
 
+}
+
+extension PostTableViewCell:UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tagsArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagsInAllPostssCVCell", for: indexPath) as! tagsInAllPostssCVCell
+        cell.tagLabel.text = tagsArray[indexPath.row]
+        return cell
+    }
+    
+    
 }

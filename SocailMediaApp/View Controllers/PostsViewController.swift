@@ -12,6 +12,8 @@ class PostsViewController: UIViewController {
     
     var postsArray: [Post] = []
     var selectedTag:String?
+    var pageNum = 0
+    var totalNum = 0
     
     // MARK: OUTLETS
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
@@ -60,9 +62,10 @@ class PostsViewController: UIViewController {
         }
     }
     private func getPosts(){
-        PostAPI.getAllPosts(tag: selectedTag) { postsArrayResponse in
-            self.postsArray = postsArrayResponse
+        PostAPI.getAllPosts(page: pageNum, tag: selectedTag) { postsArrayResponse, total in
+            self.postsArray.append(contentsOf: postsArrayResponse)
             self.postsTableView.reloadData()
+            self.totalNum = total
             self.loaderView.stopAnimating()
         }
     }
@@ -96,7 +99,9 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         let currentPost = postsArray[indexPath.row]
         //filling data
         cell.userImgView.makeCircularImg()
-        cell.userImgView.setImageFromStringURL(stringURL: currentPost.owner.picture!)
+        if let postImg = currentPost.owner.picture {
+            cell.userImgView.setImageFromStringURL(stringURL: postImg)
+        }
         cell.userNameLabel.text = currentPost.owner.firstName + " " + currentPost.owner.lastName
         cell.postTxtLable.text = currentPost.text
         cell.postImgView.setImageFromStringURL(stringURL: currentPost.image)
@@ -113,12 +118,16 @@ extension PostsViewController: UITableViewDataSource, UITableViewDelegate {
         present(postDetailsVC, animated: true, completion: nil)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            if indexPath.row == postsArray.count - 1 && postsArray.count < totalNum {
+                pageNum = pageNum + 1
+                getPosts()
+            }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 465
     }
     
     
 }
-
-
-

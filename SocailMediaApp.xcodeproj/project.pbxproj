@@ -36,6 +36,7 @@
 		B9754258282BA70200B135C9 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754257282BA70200B135C9 /* TagsViewController.swift */; };
 		B975425A282BA86C00B135C9 /* tagsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754259282BA86C00B135C9 /* tagsCVCell.swift */; };
 		B975425C282C28AA00B135C9 /* tagsInAllPostssCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975425B282C28AA00B135C9 /* tagsInAllPostssCVCell.swift */; };
+		B975425E282D119B00B135C9 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975425D282D119B00B135C9 /* NewPostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		B9754257282BA70200B135C9 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		B9754259282BA86C00B135C9 /* tagsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagsCVCell.swift; sourceTree = "<group>"; };
 		B975425B282C28AA00B135C9 /* tagsInAllPostssCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagsInAllPostssCVCell.swift; sourceTree = "<group>"; };
+		B975425D282D119B00B135C9 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				B9754251282A99F900B135C9 /* RegisterViewController.swift */,
 				B9754253282AB22900B135C9 /* SigninViewController.swift */,
 				B9754257282BA70200B135C9 /* TagsViewController.swift */,
+				B975425D282D119B00B135C9 /* NewPostViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				B97542372829943500B135C9 /* PostDetailsViewController.swift in Sources */,
 				B975424A282A826600B135C9 /* Location.swift in Sources */,
 				B975423328293E6E00B135C9 /* PostTableViewCell.swift in Sources */,
+				B975425E282D119B00B135C9 /* NewPostViewController.swift in Sources */,
 				B9754254282AB22900B135C9 /* SigninViewController.swift in Sources */,
 				B9754256282B982000B135C9 /* User Manager.swift in Sources */,
 				B975424E282A8F9700B135C9 /* UserAPI.swift in Sources */,

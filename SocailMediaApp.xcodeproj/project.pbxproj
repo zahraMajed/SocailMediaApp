@@ -37,6 +37,7 @@
 		B975425A282BA86C00B135C9 /* tagsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754259282BA86C00B135C9 /* tagsCVCell.swift */; };
 		B975425C282C28AA00B135C9 /* tagsInAllPostssCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975425B282C28AA00B135C9 /* tagsInAllPostssCVCell.swift */; };
 		B975425E282D119B00B135C9 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975425D282D119B00B135C9 /* NewPostViewController.swift */; };
+		B9754262282E947800B135C9 /* editUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9754261282E947800B135C9 /* editUserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		B9754259282BA86C00B135C9 /* tagsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagsCVCell.swift; sourceTree = "<group>"; };
 		B975425B282C28AA00B135C9 /* tagsInAllPostssCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagsInAllPostssCVCell.swift; sourceTree = "<group>"; };
 		B975425D282D119B00B135C9 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		B9754261282E947800B135C9 /* editUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editUserProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				B9754253282AB22900B135C9 /* SigninViewController.swift */,
 				B9754257282BA70200B135C9 /* TagsViewController.swift */,
 				B975425D282D119B00B135C9 /* NewPostViewController.swift */,
+				B9754261282E947800B135C9 /* editUserProfileViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				B975421828292F3200B135C9 /* PostsViewController.swift in Sources */,
 				B975425A282BA86C00B135C9 /* tagsCVCell.swift in Sources */,
 				B9754247282A78C100B135C9 /* UserProfileViewController.swift in Sources */,
+				B9754262282E947800B135C9 /* editUserProfileViewController.swift in Sources */,
 				B97542452829CECA00B135C9 /* ShadowView.swift in Sources */,
 				B975423E2829C30B00B135C9 /* UI Extensions.swift in Sources */,
 				B975421428292F3200B135C9 /* AppDelegate.swift in Sources */,

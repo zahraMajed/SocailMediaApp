@@ -38,7 +38,9 @@ class UserProfileViewController: UIViewController {
     
     private func setUserData(){
         userNameLabel.text = user.firstName + " " + user.lastName
-        userImgView.setImageFromStringURL(stringURL: user.picture!)
+        if let userImg = user.picture {
+            userImgView.setImageFromStringURL(stringURL: userImg)
+        }
         userEmailLabel.text = user.email
         userPhoneLabel.text = user.phone
         userGenderLabel.text = user.gender

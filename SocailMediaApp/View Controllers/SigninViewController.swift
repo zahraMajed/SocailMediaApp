@@ -19,6 +19,14 @@ class SigninViewController: UIViewController {
         
     }
     
+    private func addAddPostTap(){
+        let mainTabBar = self.storyboard?.instantiateViewController(withIdentifier: "MainTapBar") as! UITabBarController
+        let vc1 = PostsViewController()
+        let vc2 = NewPostViewController()
+        let vc3 = PostDetailsViewController()
+        mainTabBar.setViewControllers([vc1,vc2,vc3], animated: true)
+    }
+    
     // MARK: ACTIONS
     @IBAction func signinBtnClicked(_ sender: Any) {
         if let firstName = firstNameTxtField.text, let lastName = lastNameTxtField.text {
@@ -36,9 +44,10 @@ class SigninViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                     } else {
                         if let loggedinUser = user {
-                            let postVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTapBar")
+                            let postVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
                             UserManager.loggedinUser = loggedinUser
                             self.present(postVC!, animated: true, completion: nil)
+                         
                         }
                     }
                 }

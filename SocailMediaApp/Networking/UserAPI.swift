@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class UserAPI {
     
+    //MARK: GET USER DATA
     static func getUserData(userID:String, completionHandeler: @escaping (User) -> ()){
         AF.request("\(API.baseURL)/user/\(userID)", headers: API.headers).responseJSON { response in
             let jsonData = JSON(response.value!)
@@ -24,7 +25,7 @@ class UserAPI {
         }
     }
     
-    
+    // MARK: CRATE USER
     static func createUser(firstName: String, lastName: String, email: String, completionHandeler: @escaping (User?, String?) -> ()){
         
         //if body parameter use: JSONParameterEncoder
@@ -58,6 +59,7 @@ class UserAPI {
         }
     }
     
+    // MARK: SIGININ USER
     static func signinUser(firstName: String, lastName: String, completionHandeler: @escaping (User?, String?) -> ()){
         //if query parameter use: URLEncodedFormParameterEncoder
         let param = ["created" : 1 ]
@@ -98,6 +100,30 @@ class UserAPI {
                 let lastNameError = data["lastName"].stringValue
                 let errorMsg = emailError + " " + firstNameError + " " + lastNameError
                 completionHandeler(nil, errorMsg)
+            }
+        }
+    }
+    
+    // MARK: UPDATE USER
+    static func updateUser(userId:String, firstName: String, lastName:String, phone: String, imgUrl: String, completionHandeler: @escaping (User?, String?) -> ()){
+        
+        let param = ["firstName" : firstName,
+                     "lastName": lastName,
+                     "phone": phone,
+                     "picture": imgUrl]
+        AF.request("\(API.baseURL)/user/\(userId)", method: .put, parameters: param, encoder: JSONParameterEncoder.default, headers: API.headers).validate().responseJSON { response in
+            switch response.result {
+            case .success:
+                let jsonData = JSON(response.value!)
+                let decoder = JSONDecoder()
+                do {
+                    let user = try decoder.decode(User.self, from: jsonData.rawData())
+                    completionHandeler(user,nil)
+                } catch let error{
+                    print(error)
+                }
+            case .failure(let error):
+                let jsonData = JSON(response.data)
             }
         }
     }

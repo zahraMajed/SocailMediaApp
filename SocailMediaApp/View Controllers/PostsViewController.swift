@@ -21,6 +21,7 @@ class PostsViewController: UIViewController {
     @IBOutlet weak var signinBtn: UIButton!
     @IBOutlet weak var postTagLabel: UILabel!
     @IBOutlet weak var closeBtn: UIButton!
+    @IBOutlet weak var newPostcontainer: UIView!
     
     // MARK: LIFE CYCLE METHODS
     override func viewDidLoad() {
@@ -33,7 +34,10 @@ class PostsViewController: UIViewController {
         checkIfTag()
         getPosts()
         
+        newPostcontainer.roundCorners(.allCorners, radius: 30)
         NotificationCenter.default.addObserver(self, selector: #selector(userProfileTapped), name: NSNotification.Name(rawValue: "userStackViewTapped"), object: nil)
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(newPostAdded), name: NSNotification.Name(rawValue: "NewPostAdded"), object: nil)
         
     }
     
@@ -43,12 +47,13 @@ class PostsViewController: UIViewController {
     }
     
     // MARK: FUNCTIONS
-    
     private func checkIfUserOrGuest(){
         if  UserManager.loggedinUser != nil {
             signinBtn.setImage(UIImage(systemName: "lock"), for: .normal)
+            newPostcontainer.isHidden = false
         }else{
             signinBtn.setImage(UIImage(systemName: "lock.open"), for: .normal)
+            newPostcontainer.isHidden = true
         }
     }
     private func checkIfTag(){
@@ -70,6 +75,13 @@ class PostsViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "signoutSeg" {
+            UserManager.loggedinUser = nil
+        }
+    }
+    
+    // MARK: OBJC FUNCTIONS
     @objc func userProfileTapped(notification: Notification){
         if let cell = notification.userInfo?["cell"] as? PostTableViewCell {
             if let tappedPostIndexPath = postsTableView.indexPath(for: cell){
@@ -81,11 +93,14 @@ class PostsViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "signoutSeg" {
-            UserManager.loggedinUser = nil
-        }
+    @objc func newPostAdded(){
+        loaderView.startAnimating()
+        postsArray = []
+        pageNum = 0
+        getPosts()
     }
+    
+    
 }
 
 // MARK: TABLE VIEW METHODS

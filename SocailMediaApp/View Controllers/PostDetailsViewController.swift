@@ -35,6 +35,7 @@ class PostDetailsViewController: UIViewController {
         setPostData()
         checkIfUserOrGuest()
         
+        
     }
     
     // MARK: ACTION
@@ -68,7 +69,9 @@ class PostDetailsViewController: UIViewController {
         likesNumberLbl.text = String(post.likes)
         postImgView.setImageFromStringURL(stringURL: post.image)
         userImgview.makeCircularImg()
-        userImgview.setImageFromStringURL(stringURL: post.owner.picture!)
+        if let userImg = post.owner.picture {
+            userImgview.setImageFromStringURL(stringURL: userImg)
+        }
         getPostComments()
     }
     
@@ -79,6 +82,7 @@ class PostDetailsViewController: UIViewController {
             self.loaderView.stopAnimating()
         }
     }
+ 
 }
 
 // MARK: TABLE VIEW PROTOCOLS

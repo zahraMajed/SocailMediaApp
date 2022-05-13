@@ -35,6 +35,26 @@ class PostAPI {
         }
     }
     
+    // MARK: ADD NEW POST
+    static func addNewPst(userID: String, text: String, imgUrl: String, completionHandeler: @escaping () -> ()){
+        
+        //if body parameter use: JSONParameterEncoder
+        let param = ["owner": userID,
+                     "text": text,
+                     "image": imgUrl]
+        //post request
+        AF.request("\(API.baseURL)/post/create", method: .post, parameters: param, encoder: JSONParameterEncoder.default, headers: API.headers).validate().responseJSON { response in
+            switch response.result {
+            case .success:
+                completionHandeler()
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+    }
+
+    
     // MARK: GET POST'S COMMENT
     static func getPostComments(postID: String, completionHandeler: @escaping ([Comments]) -> () ){
         AF.request("\(API.baseURL)/post/\(postID)/comment", headers: API.headers).responseJSON { response in
@@ -57,7 +77,6 @@ class PostAPI {
         let param = ["post" : postId,
                      "message": msg,
                      "owner": userID]
-        //post request
         AF.request("\(API.baseURL)/comment/create", method: .post, parameters: param, encoder: JSONParameterEncoder.default, headers: API.headers).validate().responseJSON { response in
             switch response.result {
             case .success:

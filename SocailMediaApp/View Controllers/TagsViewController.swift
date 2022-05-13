@@ -14,6 +14,7 @@ class TagsViewController: UIViewController {
     
     // MARK: OUTLETS
     @IBOutlet weak var tagsCollectionV: UICollectionView!
+    @IBOutlet weak var sigininBtn: UIButton!
     @IBOutlet weak var loaderView: NVActivityIndicatorView!
     
     // MARK: LIFE CYCLE METHODS
@@ -21,6 +22,7 @@ class TagsViewController: UIViewController {
         super.viewDidLoad()
         tagsCollectionV.delegate = self
         tagsCollectionV.dataSource = self
+        checkIfUserOrGuest()
         getTags()
     }
     
@@ -33,6 +35,16 @@ class TagsViewController: UIViewController {
             self.tagsCollectionV.reloadData()
         }
     }
+    private func checkIfUserOrGuest(){
+        if  UserManager.loggedinUser != nil {
+            sigininBtn.setImage(UIImage(systemName: "lock"), for: .normal)
+        }else{
+            sigininBtn.setImage(UIImage(systemName: "lock.open"), for: .normal)
+        }
+    }
+    
+    
+
 
 }
 
